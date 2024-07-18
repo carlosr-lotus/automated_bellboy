@@ -1,7 +1,15 @@
+from flask import Flask, request
 from services import max 
 
-def main():
-    print('Running Max script...')
-    max.access('client@email.com', '123456789')
+app = Flask(__name__)
 
-main()
+@app.route("/access/")
+def access():
+    email = request.args.get('email')
+    password = request.args.get('password')
+    status = max.access(email, password)
+    return status 
+
+@app.route("/")
+def main():
+    return { 'status': 'Online' }

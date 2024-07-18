@@ -64,6 +64,7 @@ def access(user_email: str, user_password: str):
     # Click login button
     login_button.click()
 
-    print('Success!')
+    print('Success!') 
 
     assert "No results found." not in driver.page_source
+    return { 'res': 'Success!' }
