@@ -11,5 +11,5 @@ def access():
     return status 
 
 @app.route("/")
-def main():
+def serverStatus():
     return { 'status': 'Online' }
